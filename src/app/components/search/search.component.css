@@ -1,0 +1,9 @@
+/*.container{*/
+  /*background-color: rgb(233, 236, 239);*/
+/*}*/
+
+.form-group{
+  margin: 20px;
+  padding: 20px;
+  display: flex;
+}
