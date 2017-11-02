@@ -10,24 +10,12 @@
         <th>Words</th>
       </tr>
       </thead>
-      <tbody>
-      <tr class="table-success">
+      <tbody *ngFor="let twit of data">
+      <tr class="table-success" >
         <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
+        <td>{{twit.message}}</td>
+        <td>{{twit.sentiment.comparative}}</td>
         <td>@mdo</td>
-      </tr>
-      <tr class="table-danger">
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr class="table-warning">
-        <th scope="row">3</th>
-        <td>Larry the Bird</td>
-        <td></td>
-        <td>@twitter</td>
       </tr>
       </tbody>
     </table>

@@ -1,17 +1,18 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {HttpModule} from '@angular/http';
+import {HttpClientModule} from '@angular/common/http';
+import {RouterModule} from '@angular/router';
 
-import { AppComponent } from './app.component';
-import { InfoComponent } from './components/info/info.component';
-import { ResultComponent } from './components/result/result.component';
-import { SearchComponent } from './components/search/search.component';
-import { FooterComponent } from './components/footer/footer.component';
+import {AppComponent} from './app.component';
+import {InfoComponent} from './components/info/info.component';
+import {ResultComponent} from './components/result/result.component';
+import {SearchComponent} from './components/search/search.component';
+import {FooterComponent} from './components/footer/footer.component';
 
-import { HttpService } from './services/http-service.service';
-import { ROUTES } from './app.routing';
+import {HttpService} from './services/http-service.service';
+import {ROUTES} from './app.routing';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ROUTES } from './app.routing';
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(ROUTES),
+    HttpModule,
     HttpClientModule
   ],
   providers: [

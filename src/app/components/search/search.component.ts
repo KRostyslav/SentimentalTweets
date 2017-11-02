@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Form, NgForm } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
-import { HttpService } from '../../services/http-service.service';
+import {Component, OnInit} from '@angular/core';
+import {Form, NgForm} from '@angular/forms';
+import {HttpClient} from '@angular/common/http';
+import {Http} from '@angular/http';
+import {HttpService} from '../../services/http-service.service';
 
 @Component({
   selector: 'app-search',
@@ -12,31 +13,26 @@ import { HttpService } from '../../services/http-service.service';
 export class SearchComponent implements OnInit {
 
 // (@Input) account = '';
+  data: any;
+  tmp: string;
 
-  constructor(private HttpService: HttpService) {
+  constructor( private HttpService: HttpService ) {
   }
 
   ngOnInit() {
   }
 
-  onKey(value: string) {
+  onKey( value: string ) {
     console.log('Get me tweets', value);
-
   }
 
-  onSubmit(account: String) {
+  onSubmit( account: string ) {
+    this.tmp = account;
     console.log('Get me tweets', account);
-    // this.HttpService.getAllTweets()
-    //   .subscribe(
-    //     response => {
-    //       // this.usersList = response.data;
-    //       console.log(response);
-    //     },
-    //     error => {
-    //       console.log(error);
-    //       alert(`Can't get users.`);
-    //     }
-    //   );
+    this.HttpService.getAllTweets(account)
+      .then(( response: Response ) => {
+        this.data = response;
+      });
   }
 
 }
