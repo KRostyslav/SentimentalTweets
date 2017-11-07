@@ -82,11 +82,12 @@
       </tr>
       </thead>
       <tbody *ngFor="let twit of data">
-      <tr [className]="'table-danger'">
-        <th scope="row"></th>
+      <tr>
+      <!--<tr [className]="'table-danger'">-->
+        <th scope="row">{{twit.date }}</th>
         <td>{{twit.message}}</td>
-        <td>{{twit.sentiment.positive}}</td>
-        <td>{{twit.sentiment.negative}}</td>
+        <td><span class="badge badge-success" *ngFor="let positive of twit.sentiment.positive">{{positive}}</span></td>
+        <td><span class="badge badge-danger" *ngFor="let negative of twit.sentiment.negative">{{negative}}</span></td>
         <td>{{twit.sentiment.comparative}}</td>
       </tr>
       </tbody>
