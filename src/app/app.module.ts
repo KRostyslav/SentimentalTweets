@@ -9,7 +9,7 @@ import {AppComponent} from './app.component';
 import {InfoComponent} from './components/info/info.component';
 import {ResultComponent} from './components/result/result.component';
 import {AnalysisSongComponent} from './components/analysis-song/analysis-song.component';
-import { AnalysisTweetsComponent } from './components/analysis-tweet/analysis-tweet.component';
+import {AnalysisTweetsComponent} from './components/analysis-tweet/analysis-tweet.component';
 import {FooterComponent} from './components/footer/footer.component';
 
 import {HttpService} from './services/http-service.service';
