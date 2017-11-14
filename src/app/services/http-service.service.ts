@@ -21,16 +21,6 @@ export class HttpService {
   data: any;
   body: any;
 
-  // private BASE_URL = 'https://twit-sentiment.herokuapp.com/twit/realdonaldtrump';
-  // private BASE_URL = 'https://limitless-meadow-14042.herokuapp.com/artists';
-  // private headers = new Headers({
-  //   'Content-Type': 'application/json',
-  //   'Access-Control-Allow-Origin': '*'
-  // });
-  // private options = new RequestOptions({ headers: this.headers });
-
-  // private headers: Headers;
-
   constructor( private http: Http ) {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
