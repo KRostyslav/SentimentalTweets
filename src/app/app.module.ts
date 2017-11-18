@@ -4,6 +4,7 @@ import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
+import { ChartsModule } from 'ng2-charts';
 
 import {AppComponent} from './app.component';
 import {InfoComponent} from './components/info/info.component';
@@ -28,6 +29,7 @@ import {ROUTES} from './app.routing';
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(ROUTES),
+    ChartsModule,
     HttpModule,
     HttpClientModule
   ],

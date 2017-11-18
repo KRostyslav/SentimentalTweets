@@ -33,7 +33,6 @@ export class HttpService {
       .then(( response: Response ) => {
         this.data = response;
         this.body = JSON.parse(this.data._body);
-        console.log(this.body);
         return this.body;
       })
       .catch(this.handleError);

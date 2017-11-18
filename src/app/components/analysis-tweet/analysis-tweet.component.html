@@ -58,6 +58,19 @@
 </div>
 
 <div class="container">
+  <div class="row" *ngIf="chartVisible">
+    <div style="width: 70%;">
+      <canvas
+        baseChart
+        [chartType]="'bar'"
+        [datasets]="chartData"
+        [labels]="chartLabels"
+        [options]="chartOptions"
+        [legend]="true"
+        (chartClick)="onChartClick($event)">
+      </canvas>
+    </div>
+  </div>
   <div class="row">
 
     <table class="table table-sm" *ngIf="data">
