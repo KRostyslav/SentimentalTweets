@@ -20,7 +20,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-3">
       <div class="card">
         <div class="card-body">
           <form class="form-inline" #f="ngForm" (ngSubmit)="onSubmit('Cristiano')">
@@ -31,7 +31,7 @@
         </div>
       </div>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-3">
       <div class="card">
         <div class="card-body">
           <form class="form-inline" #f="ngForm" (ngSubmit)="onSubmit('katyperry')">
@@ -42,11 +42,22 @@
         </div>
       </div>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-3">
       <div class="card">
         <div class="card-body">
           <form class="form-inline" #f="ngForm" (ngSubmit)="onSubmit('realDonaldTrump')">
             <h4 class="card-title">Donald J. Trump: @realDonaldTrump</h4>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <button type="submit" class="btn btn-primary">Analysis this account</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="card">
+        <div class="card-body">
+          <form class="form-inline" #f="ngForm" (ngSubmit)="onSubmit('nytimes')">
+            <h4 class="card-title">New York Times: @nytimes</h4>
             <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
             <button type="submit" class="btn btn-primary">Analysis this account</button>
           </form>
@@ -58,17 +69,27 @@
 </div>
 
 <div class="container">
+
   <div class="row" *ngIf="chartVisible">
-    <div style="width: 70%;">
-      <canvas
-        baseChart
-        [chartType]="'bar'"
-        [datasets]="chartData"
-        [labels]="chartLabels"
-        [options]="chartOptions"
-        [legend]="true"
-        (chartClick)="onChartClick($event)">
-      </canvas>
+    <div class="col-md-8">
+      <div>
+        <canvas
+          baseChart
+          [chartType]="'bar'"
+          [datasets]="chartData"
+          [labels]="chartLabels"
+          [options]="chartOptions"
+          [legend]="true"
+          (chartClick)="onChartClick($event)">
+        </canvas>
+      </div>
+    </div>
+    <div class="col-md-4">
+        <canvas baseChart
+                [data]="doughnutChartData"
+                [labels]="doughnutChartLabels"
+                [chartType]="doughnutChartType"
+        ></canvas>
     </div>
   </div>
   <div class="row">
@@ -85,8 +106,8 @@
       </thead>
       <tbody *ngFor="let twit of data">
       <tr>
-      <!--<tr [className]="'table-danger'">-->
-        <th scope="row">{{twit.date }}</th>
+        <!--<tr [className]="'table-danger'">-->
+        <th scope="row">{{twit.date  | amDateFormat:'LL' }}</th>
         <td>{{twit.message}}</td>
         <td><span class="badge badge-success" *ngFor="let positive of twit.sentiment.positive">{{positive}}</span></td>
         <td><span class="badge badge-danger" *ngFor="let negative of twit.sentiment.negative">{{negative}}</span></td>
