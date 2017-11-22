@@ -3,6 +3,7 @@ import {Form, NgForm} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {Http} from '@angular/http';
 import {HttpService} from '../../services/http-service.service';
+import {NgProgress} from 'ngx-progressbar';
 
 @Component({
   selector: 'app-search',
@@ -38,7 +39,8 @@ export class AnalysisTweetsComponent implements OnInit {
   negative = 0;
   netral = 0;
 
-  constructor( private HttpService: HttpService ) {
+  constructor( private HttpService: HttpService,
+               public ngProgress: NgProgress) {
     // console.log(this.chartData);
   }
 
@@ -55,9 +57,10 @@ export class AnalysisTweetsComponent implements OnInit {
   }
 
   onSubmit( account: string ) {
+    this.ngProgress.start();
     console.log('Get me tweets', account);
     this.HttpService.getAllTweets(account)
-      .then(( response: Response ) => {
+      .subscribe( response => {
         this.data = response;
         this.account = account;
         this.positive = 0;
@@ -66,7 +69,9 @@ export class AnalysisTweetsComponent implements OnInit {
         this.setDataForChart(this.data);
         // this.setDataLabel(this.data);
         this.chartVisible = true;
-      });
+          this.ngProgress.done();
+      },
+        error => console.log(error));
   }
 
   private setDataForChart( tweets ) {

@@ -4,8 +4,9 @@ import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
-import { ChartsModule } from 'ng2-charts';
-import { MomentModule } from 'angular2-moment';
+import {ChartsModule} from 'ng2-charts';
+import {MomentModule} from 'angular2-moment';
+import {NgProgressModule} from 'ngx-progressbar';
 
 import {AppComponent} from './app.component';
 import {InfoComponent} from './components/info/info.component';
@@ -32,6 +33,7 @@ import {ROUTES} from './app.routing';
     RouterModule.forRoot(ROUTES),
     ChartsModule,
     MomentModule,
+    NgProgressModule,
     HttpModule,
     HttpClientModule
   ],
@@ -40,5 +42,6 @@ import {ROUTES} from './app.routing';
   ],
   bootstrap: [ AppComponent ]
 })
+
 export class AppModule {
 }
