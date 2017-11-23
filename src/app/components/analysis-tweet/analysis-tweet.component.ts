@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {Http} from '@angular/http';
 import {HttpService} from '../../services/http-service.service';
 import {NgProgress} from 'ngx-progressbar';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-search',
@@ -12,8 +13,6 @@ import {NgProgress} from 'ngx-progressbar';
   providers: [ HttpClient ]
 })
 export class AnalysisTweetsComponent implements OnInit {
-
-// (@Input) account = '';
 
   chartVisible = false;
   chartOptions = {
@@ -40,13 +39,10 @@ export class AnalysisTweetsComponent implements OnInit {
   netral = 0;
 
   constructor( private HttpService: HttpService,
-               public ngProgress: NgProgress) {
-    // console.log(this.chartData);
+               public ngProgress: NgProgress ) {
   }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 
   onChartClick( event ) {
     console.log(event);
@@ -58,19 +54,18 @@ export class AnalysisTweetsComponent implements OnInit {
 
   onSubmit( account: string ) {
     this.ngProgress.start();
-    console.log('Get me tweets', account);
     this.HttpService.getAllTweets(account)
-      .subscribe( response => {
-        this.data = response;
-        this.account = account;
-        this.positive = 0;
-        this.negative = 0;
-        this.netral = 0;
-        this.setDataForChart(this.data);
-        // this.setDataLabel(this.data);
-        this.chartVisible = true;
+      .toPromise()
+      .then(response => {
+          this.data = response;
+          this.account = account;
+          this.positive = 0;
+          this.negative = 0;
+          this.netral = 0;
+          this.setDataForChart(this.data);
+          this.chartVisible = true;
           this.ngProgress.done();
-      },
+        },
         error => console.log(error));
   }
 
@@ -103,7 +98,6 @@ export class AnalysisTweetsComponent implements OnInit {
   }
 
   private setCountSentimentalTweets( tweet ) {
-
     let clone = [];
     if (tweet > 0) {
       this.positive++;
