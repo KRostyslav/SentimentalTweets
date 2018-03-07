@@ -1,64 +1,54 @@
 <div class="container">
   <div class="row">
     <form class="form-inline" #f="ngForm" (ngSubmit)="onSubmit(account.value)">
-      <div class="form-group">
-        <label class="col-form-label">
-          <h4>Twitter user: </h4>
-          <span class="input-group-addon" id="btnGroupAddon">@</span>
-        </label>
-        <input type="text"
-               class="form-control"
-               id="twitterAdress"
-               placeholder="Input twitter account"
-               required
-               #account/>
-        <button type="submit" class="btn btn-primary">Analysis!</button>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="">Twitter user: @</span>
+        </div>
+        <input type="text" class="form-control" id="twitterAdress" #account>
       </div>
+      <button type="submit" class="btn btn-primary">Analysis!</button>
     </form>
   </div>
 </div>
 
 <div class="container">
   <div class="row">
-    <div class="col-sm-3">
+    <div class="col-sm-12 col-md-6 col-lg-3">
       <div class="card">
         <div class="card-body">
           <form class="form-inline" #f="ngForm" (ngSubmit)="onSubmit('Cristiano')">
             <h4 class="card-title">Cristiano Ronaldo: @Cristiano</h4>
-            <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
             <button type="submit" class="btn btn-primary">Analysis this account</button>
           </form>
         </div>
       </div>
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-12 col-md-6 col-lg-3">
       <div class="card">
         <div class="card-body">
           <form class="form-inline" #f="ngForm" (ngSubmit)="onSubmit('katyperry')">
             <h4 class="card-title">KATY PERRY: @katyperry</h4>
-            <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
             <button type="submit" class="btn btn-primary">Analysis this account</button>
           </form>
         </div>
       </div>
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-12 col-md-6 col-lg-3">
       <div class="card">
         <div class="card-body">
           <form class="form-inline" #f="ngForm" (ngSubmit)="onSubmit('realDonaldTrump')">
             <h4 class="card-title">Donald J. Trump: @realDonaldTrump</h4>
-            <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
             <button type="submit" class="btn btn-primary">Analysis this account</button>
           </form>
         </div>
       </div>
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-12 col-md-6 col-lg-3">
       <div class="card">
         <div class="card-body">
           <form class="form-inline" #f="ngForm" (ngSubmit)="onSubmit('nytimes')">
             <h4 class="card-title">New York Times: @nytimes</h4>
-            <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
             <button type="submit" class="btn btn-primary">Analysis this account</button>
           </form>
         </div>
@@ -67,9 +57,9 @@
   </div>
 
 </div>
-
+<hr>
 <div class="container">
-
+  <h3 *ngIf="data">Results: </h3>
   <div class="row" *ngIf="chartVisible">
     <div class="col-md-8">
       <div>
