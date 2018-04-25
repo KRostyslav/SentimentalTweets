@@ -1,3 +1,5 @@
+[![TypeScript](https://badges.frapsoft.com/typescript/code/typescript.png?v=101)](https://github.com/ellerbrock/typescript-badges/)
+
 # AnalysisTweets
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
